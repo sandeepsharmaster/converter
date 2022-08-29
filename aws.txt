@@ -1,8 +1,0 @@
-eksctl create cluster --name migration-cluster_1 --nodegroup-name migration-cluster-node-group_1  --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --managed --asg-access
-
-
-
-
-AKIAYEOI5IMWCR2XDP76
-
-st4xCmL2xIwgxmBAU+hb07mUpOv2VU4vYt5Zx67x
