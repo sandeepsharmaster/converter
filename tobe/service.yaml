@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: todowebapp-h2
+  name: todowebapp-h2
+  namespace: default
+spec:
+  ports:
+  - nodePort: 32753
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: todowebapp-h2
+  sessionAffinity: None
+  type: LoadBalancer

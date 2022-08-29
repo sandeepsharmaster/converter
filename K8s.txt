@@ -1,0 +1,28 @@
+eksctl create cluster --name migration-cluster --nodegroup-name migration-cluster-node-group  --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --managed --asg-access
+
+
+
+eksctl create cluster --name migration-cluster1 --nodegroup-name migration-cluster-node-group1  --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 2 --managed --asg-access
+
+
+kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+
+kubectl get deployment
+
+kubectl get pods
+
+kubectl get replicaset
+
+kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+
+kubectl get service
+kubectl get all
+
+----------------------
+kubectl get service todowebapp-h2 -n default -o yaml > service.yaml
+kubectl get deployment todowebapp-h2 -n default -o yaml > deployment.yaml
+-------------------------
+
+
+
+

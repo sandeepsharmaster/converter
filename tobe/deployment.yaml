@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  generation: 1
+  labels:
+    app: todowebapp-h2
+  name: todowebapp-h2
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todowebapp-h2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: todowebapp-h2
+    spec:
+      containers:
+      - image: in28min/todo-web-application-h2:0.0.1-SNAPSHOT
+        imagePullPolicy: IfNotPresent
+        name: todo-web-application-h2
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
